@@ -19,7 +19,9 @@ const [ingredientList , setIngredientList] = React.useState([])
 
 function addIngredient(formData){
     const newIngredient = formData.get("ingredient")
+    if(newIngredient){
     setIngredientList(prevList => [...prevList, newIngredient])
+}
 }
 
     return(
@@ -36,8 +38,7 @@ function addIngredient(formData){
 
             </form>
             <section>
-
-            <h2>Ingredients on hand:</h2>
+                {ingredientList.length > 0 && (<> <h2>Ingredients on hand:</h2>
             <ul>
                 {ingredientList.map(ingredient=>(
                     <li>{ingredient}</li>
@@ -53,7 +54,9 @@ function addIngredient(formData){
                     <button>Get a Recipe</button>
                 </div>
 
-            </div>
+            </div></>)}
+
+           
             </section>
         </main>
     );
