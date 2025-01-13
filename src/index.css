@@ -59,3 +59,40 @@ main{
   font-size: 0.875rem;
   font-weight: 500;
 }
+
+.get-recipe-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F0EFEB;
+  padding-left: 10px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  padding-right: 10px;
+  border-radius: 6px;
+
+}
+
+.get-recipe-container button{
+  background-color: #D17557;
+  color: #FAFAF8;;
+  border: none;
+  border-radius: 6px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.get-recipe-container p {
+  color: #6B7280;
+  font-size: 0.875rem;
+}
+
+.get-recipe-container h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 20px;
+}

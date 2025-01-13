@@ -10,17 +10,21 @@ const ingredientListItems = ingredients.map(ingredient => (
 
 const [ingredientList , setIngredientList] = React.useState([])
 
-function handleSubmit(event){
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
+/* function handleSubmit(event){
+    event.preventDefault() (not needed)
+    const formData = new FormData(event.currentTarget) (not needed)
     const newIngredient = formData.get("ingredient")
     setIngredientList(prevList => [...prevList, newIngredient])
+ } */
 
+function addIngredient(formData){
+    const newIngredient = formData.get("ingredient")
+    setIngredientList(prevList => [...prevList, newIngredient])
 }
 
     return(
         <main>
-            <form onSubmit = {handleSubmit} className = "add-ingredient-form">
+            <form action = {addIngredient}/*onSubmit = {handleSubmit} */className = "add-ingredient-form">
                 <input 
                 type = "text"
                 placeholder="e.g. Oregano"
@@ -28,15 +32,29 @@ function handleSubmit(event){
                 name = "ingredient"
                 />
                 
-                <button> + Add Ingredient</button>
-            </form>
+            <button> + Add Ingredient</button>
 
+            </form>
+            <section>
+
+            <h2>Ingredients on hand:</h2>
             <ul>
                 {ingredientList.map(ingredient=>(
                     <li>{ingredient}</li>
                 ))}
             </ul>
+            <div className="get-recipe-container">
+                <div>         
+                <h3>Ready for Recipe?</h3>
+                <p>Generate a recipe from your list of ingredients</p>
+                </div>
 
+                <div>
+                    <button>Get a Recipe</button>
+                </div>
+
+            </div>
+            </section>
         </main>
     );
 }
