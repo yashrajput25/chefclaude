@@ -3,6 +3,14 @@ import React from "react";
 export default function Main(){
 const ingredients = ["Chicken", "Oregano" , "Tomatoes"]
 
+const [recipeShown , setRecipeShown] = React.useState(false); 
+
+function showRecipe(){
+    return (
+        setRecipeShown(recipeShown => !recipeShown)
+    )
+}
+
 
 const ingredientListItems = ingredients.map(ingredient => (
     <li>{ingredient}</li>
@@ -44,20 +52,24 @@ function addIngredient(formData){
                     <li>{ingredient}</li>
                 ))}
             </ul>
-            <div className="get-recipe-container">
+            </>)}
+
+            {ingredientList.length>3 &&(<><div className="get-recipe-container">
                 <div>         
                 <h3>Ready for Recipe?</h3>
                 <p>Generate a recipe from your list of ingredients</p>
                 </div>
 
                 <div>
-                    <button>Get a Recipe</button>
+                    <button onClick={showRecipe}>Get a Recipe</button>
                 </div>
 
             </div></>)}
-
-           
             </section>
+
+           {recipeShown && (<p>
+            ABC
+            </p>)}
         </main>
     );
 }
