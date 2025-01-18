@@ -1,4 +1,6 @@
 import React from "react";
+import ClaudeRecipe from "./ClaudeRecipe";
+import IngredientList from "./ingredientList";
 
 export default function Main(){
 const ingredients = ["Chicken", "Oregano" , "Tomatoes"]
@@ -17,13 +19,6 @@ const ingredientListItems = ingredients.map(ingredient => (
 ))
 
 const [ingredientList , setIngredientList] = React.useState([])
-
-/* function handleSubmit(event){
-    event.preventDefault() (not needed)
-    const formData = new FormData(event.currentTarget) (not needed)
-    const newIngredient = formData.get("ingredient")
-    setIngredientList(prevList => [...prevList, newIngredient])
- } */
 
 function addIngredient(formData){
     const newIngredient = formData.get("ingredient")
@@ -54,22 +49,10 @@ function addIngredient(formData){
             </ul>
             </>)}
 
-            {ingredientList.length>3 &&(<><div className="get-recipe-container">
-                <div>         
-                <h3>Ready for Recipe?</h3>
-                <p>Generate a recipe from your list of ingredients</p>
-                </div>
-
-                <div>
-                    <button onClick={showRecipe}>Get a Recipe</button>
-                </div>
-
-            </div></>)}
+            {ingredientList.length>3 &&<IngredientList onClick = {showRecipe}/>}
             </section>
 
-           {recipeShown && (<p>
-            ABC
-            </p>)}
+           {recipeShown && <ClaudeRecipe/>}
         </main>
     );
 }
