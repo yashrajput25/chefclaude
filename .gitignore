@@ -33,3 +33,4 @@ package.json
 package.json
 *.lock
 yarn.lock
+src/ai.js
