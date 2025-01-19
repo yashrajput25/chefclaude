@@ -85,9 +85,10 @@ chef-claude/
 ---
 
 ## Example Screenshot
+![Screenshot 2025-01-19 223915](https://github.com/user-attachments/assets/2430ec80-8e80-4040-a46f-2ad8fff5439e)
 
 ![Screenshot 2025-01-19 224010](https://github.com/user-attachments/assets/ec3ee4fb-2cfc-444b-9aba-f9e143b04041)
-![Screenshot 2025-01-19 223915](https://github.com/user-attachments/assets/2430ec80-8e80-4040-a46f-2ad8fff5439e)
+
 ![Screenshot 2025-01-19 224019](https://github.com/user-attachments/assets/25aa227f-8240-43ab-8350-0a510eb1fb85)
 
 ---
