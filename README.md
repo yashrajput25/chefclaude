@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Chef Claude
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Chef Claude is an interactive recipe suggestion app that allows users to input a list of ingredients they have on hand. Using the power of AI, Chef Claude generates a recipe tailored to the provided ingredients. The application makes use of the Hugging Face API for generating recipes dynamically.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **Ingredient Management**: Add ingredients to your list dynamically.
+- **AI-Generated Recipes**: Generate recipes based on your ingredient list using the Hugging Face API.
+- **Interactive UI**: View your ingredients and the generated recipe through a clean and user-friendly interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `yarn test`
+- **React**: For building the front-end of the application.
+- **Hugging Face Inference API**: For AI-powered recipe generation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+## Installation and Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up and run the project on your local machine:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+1. Ensure you have **Node.js** and **npm** installed.
+2. Obtain an API key from Hugging Face by creating an account on their platform.
+3. Clone this repository to your local machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Steps
 
-### `yarn eject`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/chef-claude.git
+    cd chef-claude
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Create a `.env` file in the root directory and add your Hugging Face API key:
+    ```plaintext
+    HF_ACCESS_TOKEN=your_huggingface_api_key
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Open your browser and navigate to `http://localhost:3000` to view the app.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## File Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+chef-claude/
+|├── public/
+|├── src/
+|   |├── components/
+|   |   |├── Main.jsx
+|   |   |├── ClaudeRecipe.jsx
+|   |   |└── IngredientList.jsx
+|   |├── ai.js
+|   |├── recipePrompt.js
+|   |└── App.css
+|├── .env
+|├── package.json
+|└── README.md
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. **Add Ingredients**: Enter ingredients in the text box and click `+ Add Ingredient` to add them to the list.
+2. **Generate a Recipe**:
+    - Once you have more than three ingredients, click "Get a Recipe".
+    - View the generated recipe powered by AI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Example Screenshot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Screenshot 2025-01-19 224010](https://github.com/user-attachments/assets/ec3ee4fb-2cfc-444b-9aba-f9e143b04041)
+![Screenshot 2025-01-19 223915](https://github.com/user-attachments/assets/2430ec80-8e80-4040-a46f-2ad8fff5439e)
+![Screenshot 2025-01-19 224019](https://github.com/user-attachments/assets/25aa227f-8240-43ab-8350-0a510eb1fb85)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Known Issues
 
-### Deployment
+- Ensure the Hugging Face API key is valid, or the app may fail to generate a recipe.
+- The response time depends on the API and network connection.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `yarn build` fails to minify
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **User Authentication**: Save and retrieve ingredient lists for individual users.
+- **Recipe Ratings**: Allow users to rate and save generated recipes.
+- **Expanded Recipe Models**: Integrate additional AI models for more diverse recipes.
+
+---
+
+## Contributing
+
+ If you'd like to contribute, please:
+
+1. Fork the repository.
+2. Create a feature branch:
+    ```bash
+    git checkout -b feature-name
+    ```
+3. Commit your changes:
+    ```bash
+    git commit -m "Add feature"
+    ```
+4. Push the branch:
+    ```bash
+    git push origin feature-name
+    ```
+5. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
