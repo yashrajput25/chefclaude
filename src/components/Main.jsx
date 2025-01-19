@@ -21,6 +21,7 @@ const ingredients = ["Chicken", "Oregano" , "Tomatoes"]
 async function getRecipe(){
     const recipeMarkdown = await getRecipeFromMistral(ingredientList)
     setRecipe(recipeMarkdown);
+    setRecipeShown(true);
 
 }
 
@@ -32,16 +33,6 @@ function addIngredient(formData){
 }
 }
 
-// async function showRecipe(){
-//     try{
-//         const recipeResponse = await getRecipeFromMistral(ingredientList);
-//         setRecipe(recipeResponse);
-//         setRecipeShown(true);
-//     }
-//     catch(err){
-//         console.error("Error fetching recipe: ", err.message);
-//     }
-// }
 
     return(
         <main>
@@ -57,10 +48,11 @@ function addIngredient(formData){
 
             </form>
             <section>
-                {ingredientList.length > 0 && (<> <h2>Ingredients on hand:</h2>
+                {ingredientList.length > 0 && (<> 
+                <h2>Ingredients on hand:</h2>
             <ul>
-                {ingredientList.map(ingredient=>(
-                    <li>{ingredient}</li>
+                {ingredientList.map((ingredient, index)=>(
+                    <li key={index} >{ingredient}</li>
                 ))}
             </ul>
             </>)}
