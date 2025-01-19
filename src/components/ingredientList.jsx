@@ -1,5 +1,8 @@
 
 export default function ingredientList(props){
+    const ingredientListItems = props.ingredients.map(ingredient => (
+        <li>{ingredient}</li>
+    ))
     return(
         <section>
             <div className="get-recipe-container">

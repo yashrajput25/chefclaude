@@ -1,24 +1,29 @@
 import React from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientList from "./ingredientList";
+import { getRecipeFromMistral } from "../ai";
 
 export default function Main(){
-const ingredients = ["Chicken", "Oregano" , "Tomatoes"]
+
 
 const [recipeShown , setRecipeShown] = React.useState(false); 
+const [ingredientList , setIngredientList] = React.useState([]);
+const [recipe , setRecipe] = React.useState("");
 
-function showRecipe(){
-    return (
-        setRecipeShown(recipeShown => !recipeShown)
-    )
+const ingredients = ["Chicken", "Oregano" , "Tomatoes"]
+
+// function showRecipe(){
+//     return (
+//         setRecipeShown(recipeShown => !recipeShown)
+//     )
+// }
+
+async function getRecipe(){
+    const recipeMarkdown = await getRecipeFromMistral(ingredientList)
+    setRecipe(recipeMarkdown);
+
 }
 
-
-const ingredientListItems = ingredients.map(ingredient => (
-    <li>{ingredient}</li>
-))
-
-const [ingredientList , setIngredientList] = React.useState([])
 
 function addIngredient(formData){
     const newIngredient = formData.get("ingredient")
@@ -26,6 +31,17 @@ function addIngredient(formData){
     setIngredientList(prevList => [...prevList, newIngredient])
 }
 }
+
+// async function showRecipe(){
+//     try{
+//         const recipeResponse = await getRecipeFromMistral(ingredientList);
+//         setRecipe(recipeResponse);
+//         setRecipeShown(true);
+//     }
+//     catch(err){
+//         console.error("Error fetching recipe: ", err.message);
+//     }
+// }
 
     return(
         <main>
@@ -49,10 +65,10 @@ function addIngredient(formData){
             </ul>
             </>)}
 
-            {ingredientList.length>3 &&<IngredientList onClick = {showRecipe}/>}
+            {ingredientList.length>3 &&<IngredientList onClick = {getRecipe} ingredients = {ingredientList}/>}
             </section>
 
-           {recipeShown && <ClaudeRecipe/>}
+           {recipeShown && <ClaudeRecipe recipe = {recipe}/>}
         </main>
     );
 }
