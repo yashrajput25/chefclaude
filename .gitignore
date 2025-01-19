@@ -25,3 +25,11 @@ public/index.html
 public/index.html
 public/index.html
 /public
+package-lock.json
+package.json
+src/.env
+*.json
+package.json
+package.json
+*.lock
+yarn.lock
