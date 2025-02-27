@@ -1,4 +1,3 @@
-// API_KEY="AIzaSyAwDMio911C8aupME2OuNazq-q9ssPUURM"
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
