@@ -6,7 +6,7 @@ export default function Header(){
             <img src="./media/chef-claude-icon.png" alt="error" />
             </div>
         
-         <h1>Chef Claude</h1>
+         <h1>Chef AI</h1>
         </header>
        
     );
