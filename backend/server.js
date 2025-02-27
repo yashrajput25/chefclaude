@@ -13,3 +13,4 @@ const API_KEY = process.env.GEMINI_API_KEY
 app.post('/generate-recipe', generateRecipe );
 
 app.listen(5000, console.log("server is running"));
+
